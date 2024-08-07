@@ -8,30 +8,34 @@ import meteorshooter.graphics.VueGameplay;
 
 public class JeuInfini {
 
-    public JeuInfini(Stage stage){
+    private Controleur controleur;
+    private Stage stage;
+    private BorderPane mainPane;
+    private GameCore gameCore;
+    private GameLoop gameLoop;
 
-        BorderPane mainPane = new BorderPane();
+    public JeuInfini(Stage stage, Controleur c){
 
-        GameCore gameCore = new GameCore();
+        this.stage = stage;
+        this.controleur = c;
+        
+        mainPane = new BorderPane();
+        gameCore = new GameCore();
+        gameLoop = new GameLoop(gameCore);
+        gameLoop.start();
+        VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
+        mainPane.setPrefSize(1024, 768);
 
-            GameLoop gameLoop = new GameLoop(gameCore);
-            gameLoop.start();
+        Scene scenejeu = new Scene(mainPane);
+        stage.addEventHandler(KeyEvent.KEY_PRESSED, evt -> {
+            gameCore.addKey(evt.getCode());
+        });
+        stage.addEventHandler(KeyEvent.KEY_RELEASED, evt -> {
+            gameCore.removeKey(evt.getCode());
+        });
 
-            VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
-
-            mainPane.setPrefSize(800, 600);
-
-            Scene scenejeu = new Scene(mainPane);
-
-            stage.addEventHandler(KeyEvent.KEY_PRESSED, evt -> {
-                gameCore.addKey(evt.getCode());
-            });
-
-            stage.addEventHandler(KeyEvent.KEY_RELEASED, evt -> {
-                gameCore.removeKey(evt.getCode());
-            });
-            
-            stage.setScene(scenejeu);
+        controleur.setSceneJeu(scenejeu);
+        controleur.commuter(scenejeu);
     }
     
 }

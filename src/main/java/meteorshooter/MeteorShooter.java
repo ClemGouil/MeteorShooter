@@ -25,7 +25,7 @@ public class MeteorShooter extends Application {
         controleur.setGameMenu(gameMenu);
 
         // Créez la scène avec GameMenu comme racine
-        Scene scenemenu = new Scene(gameMenu, 800, 600);
+        Scene scenemenu = new Scene(gameMenu, 1024, 768);
 
         // Configurer le contrôleur pour utiliser cette scène
         controleur.SetSceneMenu(scenemenu);

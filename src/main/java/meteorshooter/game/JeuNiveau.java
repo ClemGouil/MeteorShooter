@@ -23,29 +23,29 @@ public class JeuNiveau {
     private GameLoop gameLoop;
     private texte dialoguesDebut; // Dialogues au début du niveau
     private texte dialoguesFin; // Dialogues à la fin du niveau
-    private String Langue;
+    private String langue;
 
 
-    public JeuNiveau(Stage stage, Controleur c, long tempsNiveau, texte dialoguesDebut, texte dialoguesFin) {
+    public JeuNiveau(Stage stage, Controleur c, long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue) {
         this.stage = stage;
         this.controleur = c;
         this.tempsNiveau = tempsNiveau;
         this.dialoguesDebut = dialoguesDebut;
         this.dialoguesFin = dialoguesFin;
-        this.Langue = "Francais";
+        this.langue = langue;
         
         initializeGame();
         showIntroDialogues();
     }
 
     private void initializeGame() {
-        System.out.println("ici");
+
         mainPane = new BorderPane();
         gameCore = new GameCore();
         gameLoop = new GameLoop(gameCore);
         // gameLoop.start();
         VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
-        mainPane.setPrefSize(800, 600);
+        mainPane.setPrefSize(1024, 768);
 
         Scene scenejeu = new Scene(mainPane);
         stage.addEventHandler(KeyEvent.KEY_PRESSED, evt -> {
@@ -61,10 +61,10 @@ public class JeuNiveau {
     }
 
     private void showIntroDialogues() {
-
-       Dialogue DialogueDebut = new Dialogue(dialoguesDebut.GetTexte(Langue));
-       DialogueDebut.setTranslateX(400);
-       DialogueDebut.setTranslateY(400);
+        System.err.println(langue);
+        Dialogue DialogueDebut = new Dialogue(dialoguesDebut.GetTexte(langue));
+        DialogueDebut.setTranslateX(512);
+        DialogueDebut.setTranslateY(400);
         mainPane.getChildren().add(DialogueDebut);
 
         DialogueDebut.setOnMouseClicked(evt -> {
@@ -92,9 +92,10 @@ public class JeuNiveau {
     private void showEndDialogues() {
         System.err.println("erreur");
         Platform.runLater(() -> { // Assurez-vous que les modifications se font sur le thread JavaFX
-            Dialogue dialogueFin = new Dialogue(dialoguesFin.GetTexte(Langue));
+            Dialogue dialogueFin = new Dialogue(dialoguesFin.GetTexte(langue));
             System.err.println("Dialogue créé");
-    
+            dialogueFin.setTranslateX(512);
+            dialogueFin.setTranslateY(400);
             mainPane.getChildren().add(dialogueFin);
             
             dialogueFin.setOnMouseClicked(evt -> {

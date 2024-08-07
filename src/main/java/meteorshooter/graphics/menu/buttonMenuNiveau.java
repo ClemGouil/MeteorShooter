@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 public class buttonMenuNiveau extends StackPane {
 
     private Text text;
+    private boolean actif;
 
     public buttonMenuNiveau(String name, String name_image) {
 
@@ -52,4 +53,7 @@ public class buttonMenuNiveau extends StackPane {
         setOnMouseReleased(event -> setEffect(null));
     }
 
+    public void setText(String newText) {
+        text.setText(newText);
+    }
 }

@@ -1,7 +1,5 @@
 package meteorshooter.game;
 
-import java.util.List;
-
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import meteorshooter.graphics.menu.GameMenu;
@@ -45,8 +43,12 @@ public class Controleur {
       this.gamemenu = gamemenu;
   }
     // Méthode pour initialiser et démarrer un nouveau niveau
-    public void startNewLevel(long tempsNiveau, texte dialoguesDebut, texte dialoguesFin) {
-        JeuNiveau jeuNiveau = new JeuNiveau(stage, this,tempsNiveau, dialoguesDebut, dialoguesFin);
+    public void startNewLevel(long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue) {
+        JeuNiveau jeuNiveau = new JeuNiveau(stage, this,tempsNiveau, dialoguesDebut, dialoguesFin,langue);
+    }
+
+    public void startLevelInfini() {
+        JeuInfini jeuInfini = new JeuInfini(stage, this);
     }
 }
 

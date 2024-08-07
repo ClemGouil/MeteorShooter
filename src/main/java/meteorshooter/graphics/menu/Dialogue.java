@@ -14,12 +14,12 @@ public class Dialogue extends StackPane {
     public Dialogue(String texte) {
         textFlow = new TextFlow();
         Text text = new Text(texte);
-        text.setFont(text.getFont().font(10));
+        text.setFont(text.getFont().font(12));
         text.setFill(Color.WHITE);
         textFlow.getChildren().add(text);
 
 
-        Rectangle rct = new Rectangle(800, 200);
+        Rectangle rct = new Rectangle(1024, 200);
         rct.setOpacity(0.6);
         rct.setFill(Color.web("#2E2E2E"));
 
