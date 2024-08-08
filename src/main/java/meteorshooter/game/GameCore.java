@@ -119,12 +119,17 @@ public class GameCore {
         // déplacement des vaisseaux ennemies,
         // Je ne sais pas le faire pour l'instant il faut que je vois avec Maxime.
         if (vaisseauEnnemiCooldown.update(delta)) {
-            double randomX = random.nextDouble() * PLAYFIELD_WIDTH;
-            double randomY = 100;
-            addNewVaisseauEnnemie(new VaisseauEnnemi(randomX, randomY));
+            double randomX1 = random.nextDouble() * PLAYFIELD_WIDTH;
+            double randomY1 = 100; // Position de départ
+            double randomX2 = random.nextDouble() * PLAYFIELD_WIDTH;
+            double randomY2 = PLAYFIELD_HEIGHT; // Position d'arrivée
+            TrajectoireRectiligne trajectoireVaisseau = new TrajectoireRectiligne(randomX1, randomY1, randomX2, randomY2, 20);
+
+            addNewVaisseauEnnemie(new VaisseauEnnemi(randomX1, randomY1, trajectoireVaisseau));
         }
 
         this.vaisseauxEnnemis.forEach(obj -> {
+            obj.update(delta);
             ProjectileEnnemi newProjectileEnnemi = obj.fire(delta);
             if (newProjectileEnnemi != null) {
                 this.addObjetPhysique(newProjectileEnnemi, this.projectilesEnnemis);
@@ -159,24 +164,25 @@ public class GameCore {
                 }
             });
 
-            vaisseauxEnnemis.forEach(vaisseauEnnemi -> {
-                if (vaisseauEnnemi.collidesWith(projectile)) {
+        this.vaisseauxEnnemis.forEach(vaisseauEnnemi -> {
+            
+            if (vaisseauEnnemi.collidesWith(projectile)) {
 
-                    // Si on tue le vaisseau ennemi
-                    if (!vaisseauEnnemi.getHealthBar().perteVie(vaisseauJoueur.getArme().getDamage())) { //
-                        removeVaisseauEnnemie(vaisseauEnnemi);
-                        score.points_elim_vaisseau_ennemi(1, multipl); // Achille
-                        // multipl = maj_multipl(multipl,true); //Achille
-                        // multipl = 2 * multipl;
-                    }
-                    removeObjetPhysique(projectile, this.projectiles);
-
+                // Si on tue le vaisseau ennemi
+                if (!vaisseauEnnemi.getHealthBar().perteVie(vaisseauJoueur.getArme().getDamage())) { //
+                    removeVaisseauEnnemie(vaisseauEnnemi);
+                    score.points_elim_vaisseau_ennemi(1, multipl); // Achille
+                    // multipl = maj_multipl(multipl,true); //Achille
+                    // multipl = 2 * multipl;
                 }
-                // if (!(vaisseauEnnemi.collidesWith(projectile))) {
-                // multipl = 1;
-                // }
-                // multipl = maj_multipl(multipl, false); //Achille
-            });
+                removeObjetPhysique(projectile, this.projectiles);
+
+            }
+            // if (!(vaisseauEnnemi.collidesWith(projectile))) {
+            // multipl = 1;
+            // }
+            // multipl = maj_multipl(multipl, false); //Achille
+        });
 
         });
 
