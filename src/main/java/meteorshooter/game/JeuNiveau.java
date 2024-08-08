@@ -1,10 +1,15 @@
 package meteorshooter.game;
 
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -89,11 +94,30 @@ public class JeuNiveau {
     }
 
     private void showEndDialogues() {
-        Platform.runLater(() -> { // Assurez-vous que les modifications se font sur le thread JavaFX
+        Platform.runLater(() -> {
             Dialogue dialogueFin = new Dialogue(dialoguesFin.GetTexte(langue));
             System.err.println("Dialogue créé");
             dialogueFin.setTranslateX(512);
             dialogueFin.setTranslateY(400);
+
+            try {
+            InputStream is = Files.newInputStream(Paths.get("./src/main/resources/meteorshooter/assets/Victory.png"));
+            Image winnerimg = new Image(is);
+            is.close();
+            ImageView imgview = new ImageView(winnerimg);
+            imgview.setFitWidth(400);
+            imgview.setFitHeight(120);
+
+            imgview.setLayoutX((mainPane.getWidth() - imgview.getFitWidth()) / 2);
+            imgview.setLayoutY(100);
+
+            mainPane.getChildren().add(imgview);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            
             mainPane.getChildren().add(dialogueFin);
             
             dialogueFin.setOnMouseClicked(evt -> {
