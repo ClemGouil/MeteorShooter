@@ -96,7 +96,7 @@ public class GameMenu extends Parent {
         buttNiveau2 = new buttonMenuNiveau("Niveau 2", "PlaneteNiv2.png");
         buttNiveau3 = new buttonMenuNiveau("Niveau 3", "PlaneteNiv3.png");
         buttNiveau4 = new buttonMenuNiveau("Niveau 4", "PlaneteNiv4.png");
-        buttNiveau5 = new buttonMenuNiveau("Niveau 5", "PlaneteNiv1.png");
+        buttNiveau5 = new buttonMenuNiveau("Niveau 5", "PlaneteNiv5.png");
         buttRetour = new buttonMenu("Retour");
         buttFrancais = new buttonMenu("Francais");
         buttAnglais = new buttonMenu("Anglais");
@@ -153,71 +153,70 @@ public class GameMenu extends Parent {
         });
 
 
-        if (niveauxDeverrouilles[0]){
-            buttNiveau1.setOnMouseClicked(event -> {
+        buttNiveau1.setOnMouseClicked(event -> {
 
-                texte dialoguesDebut = new texte("Bonjour commandant, bienvenue à bord de l’Endurance. Je suis AmelIA, l’intelligence artificielle du vaisseau. Je vous seconderai au cours de votre exploration à travers l’univers. \n \nAvant de partir je vous propose de vous familiariser avec les commandes du vaisseau. \nL’espace est immense et plein de dangers, prenez le temps de vous entraîner avant de partir !", "Good afternoon commander, welcome aboard the Endurance. I am AmelIA the ship’s artificial intelligence. I will help you through your journey in the outer space. \n\nBefore we go, you should probably take some time to get familiar with the controls of the ship. \nSpace is huge and hazardous for a novice, take some time before taking off.");
-                texte dialoguesFin = new texte("Nous voilà au delà de la ceinture d’astéroïdes, Jupiter est à notre droite et nous allons bientôt passer \n à proximité de Saturne. Nous prenons de la vitesse et nous serons dans quelques jours au niveau de \n Proxima du Centaure :l’étoile la plus proche de nous", "We have been through the asteroid belt; you can see Jupiter at our right\nand we will go near Saturn and the other gas giants. We will pick up speed and in a few days near\nProxima Centauri: the nearest star from our Solar System.");
-                
-                controleur.startNewLevel(10000,dialoguesDebut, dialoguesFin, langue);
-                niveauxDeverrouilles[1] = true;
-                });
-        } 
-        if (niveauxDeverrouilles[1]){
-            buttNiveau2.setOnMouseClicked(event -> {
-                texte dialoguesDebut = new texte(
-                    "Nous sommes arrivés dans le système de Proxima Centauri. Attention, nos scanners détectent de la \n vie sur la première des trois planètes autour de l’étoile. Nous allons probablement avoir de la visite,\n tenez-vous prêt à tirer.",
-                    "We are in the system of Proxima Centauri. Be careful, our scanner detects \n life forms on the first of the three planets around the star. We will probably face some alien, be ready to fire at the first move."
-                );
-                texte dialoguesFin = new texte(
-                    "Bravo, vous avez réussi à passer leurs attaques, mais au vu de l’accueil que nous avons reçu ; je vous \npropose de poursuivre notre voyage. Le reste de la galaxie nous attend !",
-                    "Well done, you have been through their fire but given how they welcomed us, \nI think it would not be a bad idea to resume our journey. After all, the galaxy awaits!"
-                );
-                controleur.startNewLevel(6000, dialoguesDebut, dialoguesFin, langue);
-                niveauxDeverrouilles[2] = true;
+            texte dialoguesDebut = new texte("Bonjour commandant, bienvenue à bord de l’Endurance. Je suis AmelIA, l’intelligence artificielle du vaisseau. Je vous seconderai au cours de votre exploration à travers l’univers. \n \nAvant de partir je vous propose de vous familiariser avec les commandes du vaisseau. \nL’espace est immense et plein de dangers, prenez le temps de vous entraîner avant de partir !", "Good afternoon commander, welcome aboard the Endurance. I am AmelIA the ship’s artificial intelligence. I will help you through your journey in the outer space. \n\nBefore we go, you should probably take some time to get familiar with the controls of the ship. \nSpace is huge and hazardous for a novice, take some time before taking off.");
+            texte dialoguesFin = new texte("Nous voilà au delà de la ceinture d’astéroïdes, Jupiter est à notre droite et nous allons bientôt passer \n à proximité de Saturne. Nous prenons de la vitesse et nous serons dans quelques jours au niveau de \n Proxima du Centaure :l’étoile la plus proche de nous", "We have been through the asteroid belt; you can see Jupiter at our right\nand we will go near Saturn and the other gas giants. We will pick up speed and in a few days near\nProxima Centauri: the nearest star from our Solar System.");
+            
+            controleur.startNewLevel(10000,dialoguesDebut, dialoguesFin, langue);
+            niveauxDeverrouilles[1] = true;
+            updateLevelButtons();
             });
-        }
-        if (niveauxDeverrouilles[2]){
-            buttNiveau3.setOnMouseClicked(event -> {
-                texte dialoguesDebut = new texte(
-                    "Ahhh, voilà un endroit que j’adore : les nébuleuses stellaires. Se sont de vraies pépinières d’étoiles,\nelles sont magnifiques à voir. Vous allez être le premier humain à pouvoir en explorer une de\n l’intérieur ! Le spectacle promet d’être inoubliable.\n \n Attention, je crois que nous avons fait peur à des esprits stellaires, je crois qu’ils vont nous attaquer.",
-                    "Well, here is another place I love: a stellar nebula. Those are true nurseries for young stars, and they are so wonderful. \nYou know, you are probably one of the first human being who can see a nebula with its very own eyes so enjoy the show! \n\nLook, these kind stellar spirits seem upset, we might have disturbed them."
-                );
-                texte dialoguesFin = new texte(
-                    "Je suis triste de devoir quitter ce fabuleux endroit mais c’est sans aucun doute la meilleure chose à\n faire. Il vaut mieux laisser les créatures locales en paix.",
-                    "It is so sad we must leave this place, but I think it is for the better. The local life forms will indeed be happier without us flying around."
-                );
-                controleur.startNewLevel(7000, dialoguesDebut, dialoguesFin, langue);
-                niveauxDeverrouilles[3] = true;
-            });
-        }
-        if (niveauxDeverrouilles[3]){
-            buttNiveau4.setOnMouseClicked(event -> {
-                texte dialoguesDebut = new texte(
-                    "Ce vaisseau est un bijou technologique commandant, nous avons déjà parcouru plus de 25,000\n année-lumière et nous voilà à proximité du trou noir galactique Sagittarius A*. Ce genre d’objets\n céleste est très complexe à observer avec nos instruments. Je n’ose pas imaginer ce que l’on va\n découvrir...",
-                    "This ship truly is the epitome of technology commander, \nwe have traveled for more than 25,000 light-years and we are nearly at the center of our galaxy. \nLook, this is Sagittarius A*, the galactic black hole. This kind of celestial bodies is very hard to detect with light-based detection tools. \nI can’t wait to see what we will discover…"
-                );
-                texte dialoguesFin = new texte(
-                    "Mon dieu, cela ne ressemblait à rien de ce que j’aurais pu imaginer !\nFuyons vite avant que d’autres\n de ces entités extra dimensionnelles nous rattrapent !",
-                    "Jesus Christ! I could never have dreamed of such horrific creatures.\nLet’s get out of here as soon as possible before those extra dimensional entities catch us up!"
-                );
-                controleur.startNewLevel(8000, dialoguesDebut, dialoguesFin, langue);
-                niveauxDeverrouilles[4] = true;
-            });
-        }
-        if (niveauxDeverrouilles[4]){
-            buttNiveau5.setOnMouseClicked(event -> {
-                texte dialoguesDebut = new texte(
-                    "Regardez derrière nous, la Voie Lactée. Nous sommes enfin sortis de notre galaxie. Ici, tout est\n démesuré, la distance à la galaxie la plus proche Andromède est considérable comparé à tout le\n chemin que nous avons déjà pu parcourir... Attendez, je capte d’étranges signaux provenant de cette\n direction, allons voir !",
-                    "Look behind us, this is our galaxy: the Milky Way. \nEverything is unbounded here, the road to the nearest galaxy is far longer than everything we’ve done until now… \nWait, it seems there is a signal coming from this direction."
-                );
-                texte dialoguesFin = new texte(
-                    "Vous avez vu la taille de ces vaisseaux, ces robots disposent sans aucun doute d’une technologie\n bien plus avancée que nous ! Je ne sais pas ce que nous réserve la suite du voyage mais je suis\n persuadé que nous n’en sommes encore qu’au commencement.",
-                    "Have you seen the size of those ships! These robots have probably a much more advanced technology! \nI don’t know what awaits us for the rest of our journey, but I bet we haven’t seen anything yet."
-                );
-                controleur.startNewLevel(9000, dialoguesDebut, dialoguesFin, langue);
-            });
-        }
+
+        buttNiveau2.setOnMouseClicked(event -> {
+            texte dialoguesDebut = new texte(
+                "Nous sommes arrivés dans le système de Proxima Centauri. Attention, nos scanners détectent de la \n vie sur la première des trois planètes autour de l’étoile. Nous allons probablement avoir de la visite,\n tenez-vous prêt à tirer.",
+                "We are in the system of Proxima Centauri. Be careful, our scanner detects \n life forms on the first of the three planets around the star. We will probably face some alien, be ready to fire at the first move."
+            );
+            texte dialoguesFin = new texte(
+                "Bravo, vous avez réussi à passer leurs attaques, mais au vu de l’accueil que nous avons reçu ; je vous \npropose de poursuivre notre voyage. Le reste de la galaxie nous attend !",
+                "Well done, you have been through their fire but given how they welcomed us, \nI think it would not be a bad idea to resume our journey. After all, the galaxy awaits!"
+            );
+            controleur.startNewLevel(6000, dialoguesDebut, dialoguesFin, langue);
+            niveauxDeverrouilles[2] = true;
+            updateLevelButtons();
+        });
+
+        buttNiveau3.setOnMouseClicked(event -> {
+            texte dialoguesDebut = new texte(
+                "Ahhh, voilà un endroit que j’adore : les nébuleuses stellaires. Se sont de vraies pépinières d’étoiles,\nelles sont magnifiques à voir. Vous allez être le premier humain à pouvoir en explorer une de\n l’intérieur ! Le spectacle promet d’être inoubliable.\n \n Attention, je crois que nous avons fait peur à des esprits stellaires, je crois qu’ils vont nous attaquer.",
+                "Well, here is another place I love: a stellar nebula. Those are true nurseries for young stars, and they are so wonderful. \nYou know, you are probably one of the first human being who can see a nebula with its very own eyes so enjoy the show! \n\nLook, these kind stellar spirits seem upset, we might have disturbed them."
+            );
+            texte dialoguesFin = new texte(
+                "Je suis triste de devoir quitter ce fabuleux endroit mais c’est sans aucun doute la meilleure chose à\n faire. Il vaut mieux laisser les créatures locales en paix.",
+                "It is so sad we must leave this place, but I think it is for the better. The local life forms will indeed be happier without us flying around."
+            );
+            controleur.startNewLevel(7000, dialoguesDebut, dialoguesFin, langue);
+            niveauxDeverrouilles[3] = true;
+            updateLevelButtons();
+        });
+
+        buttNiveau4.setOnMouseClicked(event -> {
+            texte dialoguesDebut = new texte(
+                "Ce vaisseau est un bijou technologique commandant, nous avons déjà parcouru plus de 25,000\n année-lumière et nous voilà à proximité du trou noir galactique Sagittarius A*. Ce genre d’objets\n céleste est très complexe à observer avec nos instruments. Je n’ose pas imaginer ce que l’on va\n découvrir...",
+                "This ship truly is the epitome of technology commander, \nwe have traveled for more than 25,000 light-years and we are nearly at the center of our galaxy. \nLook, this is Sagittarius A*, the galactic black hole. This kind of celestial bodies is very hard to detect with light-based detection tools. \nI can’t wait to see what we will discover…"
+            );
+            texte dialoguesFin = new texte(
+                "Mon dieu, cela ne ressemblait à rien de ce que j’aurais pu imaginer !\nFuyons vite avant que d’autres\n de ces entités extra dimensionnelles nous rattrapent !",
+                "Jesus Christ! I could never have dreamed of such horrific creatures.\nLet’s get out of here as soon as possible before those extra dimensional entities catch us up!"
+            );
+            controleur.startNewLevel(8000, dialoguesDebut, dialoguesFin, langue);
+            niveauxDeverrouilles[4] = true;
+            updateLevelButtons();
+        });
+
+        buttNiveau5.setOnMouseClicked(event -> {
+            texte dialoguesDebut = new texte(
+                "Regardez derrière nous, la Voie Lactée. Nous sommes enfin sortis de notre galaxie. Ici, tout est\n démesuré, la distance à la galaxie la plus proche Andromède est considérable comparé à tout le\n chemin que nous avons déjà pu parcourir... Attendez, je capte d’étranges signaux provenant de cette\n direction, allons voir !",
+                "Look behind us, this is our galaxy: the Milky Way. \nEverything is unbounded here, the road to the nearest galaxy is far longer than everything we’ve done until now… \nWait, it seems there is a signal coming from this direction."
+            );
+            texte dialoguesFin = new texte(
+                "Vous avez vu la taille de ces vaisseaux, ces robots disposent sans aucun doute d’une technologie\n bien plus avancée que nous ! Je ne sais pas ce que nous réserve la suite du voyage mais je suis\n persuadé que nous n’en sommes encore qu’au commencement.",
+                "Have you seen the size of those ships! These robots have probably a much more advanced technology! \nI don’t know what awaits us for the rest of our journey, but I bet we haven’t seen anything yet."
+            );
+            controleur.startNewLevel(9000, dialoguesDebut, dialoguesFin, langue);
+        });
+
 
         buttRetour.setOnMouseClicked(event -> {
             TransitionMenu(menu0, menuNiveau, offset);
@@ -236,6 +235,7 @@ public class GameMenu extends Parent {
         });
 
         getChildren().addAll(menu0);
+        updateLevelButtons();
     }
 
 
@@ -342,6 +342,14 @@ public class GameMenu extends Parent {
             buttFrancais.setText("French");
             buttAnglais.setText("English");
         }
+    }
+
+    private void updateLevelButtons() {
+        buttNiveau1.setDisable(!niveauxDeverrouilles[0]);
+        buttNiveau2.setDisable(!niveauxDeverrouilles[1]);
+        buttNiveau3.setDisable(!niveauxDeverrouilles[2]);
+        buttNiveau4.setDisable(!niveauxDeverrouilles[3]);
+        buttNiveau5.setDisable(!niveauxDeverrouilles[4]);
     }
     
 
