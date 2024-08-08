@@ -16,7 +16,6 @@ import meteorshooter.graphics.VueGameplay;
 public class GameCore {
 
     private List<KeyCode> pressedKeys;
-
     private List<Projectile> projectiles;
     private List<ProjectileEnnemi> projectilesEnnemis;
     private List<Meteorite> meteorites;
@@ -75,6 +74,7 @@ public class GameCore {
         // System.out.println("Frame Time : " + delta);
         // System.out.println("MCD : " + meteoriteCooldown);
         // System.out.println("Score : " + score.get_score());
+
 
         this.vueGameplayObservers.forEach(vueGameplay -> {
             vueGameplay.update(delta);
@@ -320,5 +320,9 @@ public class GameCore {
 
     public Score get_score() {
         return this.score;
+    }
+
+    public boolean isGameOver() {
+        return this.vaisseauJoueur.getHealthBar().getCurrentHealth() <= 0;
     }
 }

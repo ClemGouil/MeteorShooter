@@ -2,12 +2,13 @@ package meteorshooter;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import meteorshooter.game.Controleur;
 import meteorshooter.game.GameCore;
 import meteorshooter.game.GameLoop;
 import meteorshooter.graphics.VueGameplay;
-import javafx.scene.layout.*;
-import javafx.scene.input.*;
 
 /**
  * JavaFX App
@@ -21,6 +22,7 @@ public class App extends Application {
 
     private static GameCore gameCore;
     private static GameLoop gameLoop;
+    private Controleur controleur;
 
     private static VueGameplay vueGameplay;
 
@@ -31,7 +33,7 @@ public class App extends Application {
 
         gameCore = new GameCore();
 
-        gameLoop = new GameLoop(gameCore);
+        gameLoop = new GameLoop(gameCore, controleur);
         gameLoop.start();
 
         vueGameplay = new VueGameplay(gameCore, mainPane);

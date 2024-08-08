@@ -42,7 +42,7 @@ public class JeuNiveau {
 
         mainPane = new BorderPane();
         gameCore = new GameCore();
-        gameLoop = new GameLoop(gameCore);
+        gameLoop = new GameLoop(gameCore,controleur);
         // gameLoop.start();
         VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
         mainPane.setPrefSize(1024, 768);

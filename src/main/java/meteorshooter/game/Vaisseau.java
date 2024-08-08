@@ -15,7 +15,7 @@ public class Vaisseau extends ObjetPhysique {
     private Arme arme;
 
     private HealthBar healthBar;
-    protected static int VIE_MAX = 100;
+    protected static int VIE_MAX = 20;
 
     public Vaisseau(double x, double y, Arme arme) {
         super(x, y);

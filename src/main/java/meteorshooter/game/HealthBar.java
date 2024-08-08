@@ -40,7 +40,9 @@ public class HealthBar {
         this(maxVie, maxVie, 10, 10);
     }
 
-
+    public int getCurrentHealth(){
+        return currentHealth;
+    }
 
     public void gainVie(int health) {
         assert (health >= 0);

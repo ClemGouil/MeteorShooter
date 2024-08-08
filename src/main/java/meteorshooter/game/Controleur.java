@@ -3,14 +3,17 @@ package meteorshooter.game;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import meteorshooter.graphics.menu.GameMenu;
+import meteorshooter.graphics.menu.GameOverMenu;
 import meteorshooter.graphics.menu.texte;
 
 public class Controleur {
 
     private GameMenu gamemenu;
+    private GameOverMenu gameovermenu;
     private Stage stage;
     private Scene sceneMenu;
     private Scene sceneJeu;
+    private Scene sceneGameOver;
 
     public Controleur(Stage stage) {
         this.stage = stage;
@@ -38,7 +41,16 @@ public class Controleur {
 
     public GameMenu getGameMenu() {
       return gamemenu;
-  }
+    }
+
+    public GameOverMenu getGameOverMenu() {
+        return gameovermenu;
+    }
+
+    public void setGameOverMenu(GameOverMenu gameovermenu) {
+        this.gameovermenu = gameovermenu;
+    }
+
     public void setGameMenu(GameMenu gamemenu) {
       this.gamemenu = gamemenu;
   }
@@ -50,5 +62,13 @@ public class Controleur {
     public void startLevelInfini() {
         JeuInfini jeuInfini = new JeuInfini(stage, this);
     }
+
+    public Scene getSceneGameOver() {
+        return sceneGameOver;
+    }
+
+    public void SetSceneGameOver(Scene sceneGameOver) {
+      this.sceneGameOver = sceneGameOver;
+  }
 }
 
