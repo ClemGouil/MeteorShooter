@@ -31,7 +31,8 @@ public class JeuNiveau {
     private String langue;
 
 
-    public JeuNiveau(Stage stage, Controleur c, long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue) {
+
+    public JeuNiveau(Stage stage, Controleur c, long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue, String imagePath) {
         this.stage = stage;
         this.controleur = c;
         this.tempsNiveau = tempsNiveau;
@@ -39,18 +40,18 @@ public class JeuNiveau {
         this.dialoguesFin = dialoguesFin;
         this.langue = langue;
         
-        initializeGame();
+        initializeGame(imagePath);
         showIntroDialogues();
     }
 
-    private void initializeGame() {
+    private void initializeGame(String imagePath) {
 
         mainPane = new BorderPane();
         gameCore = new GameCore();
         gameLoop = new GameLoop(gameCore,controleur);
         // gameLoop.start();
-        VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
-        mainPane.setPrefSize(1024, 768);
+        VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane, imagePath);
+        mainPane.setPrefSize(1920, 1080);
 
         Scene scenejeu = new Scene(mainPane);
         stage.addEventHandler(KeyEvent.KEY_PRESSED, evt -> {
@@ -66,8 +67,8 @@ public class JeuNiveau {
 
     private void showIntroDialogues() {
         Dialogue DialogueDebut = new Dialogue(dialoguesDebut.GetTexte(langue));
-        DialogueDebut.setTranslateX(512);
-        DialogueDebut.setTranslateY(400);
+        DialogueDebut.setTranslateX(1920 / 2);
+        DialogueDebut.setTranslateY(1080/ 2);
         mainPane.getChildren().add(DialogueDebut);
 
         DialogueDebut.setOnMouseClicked(evt -> {
@@ -97,8 +98,8 @@ public class JeuNiveau {
         Platform.runLater(() -> {
             Dialogue dialogueFin = new Dialogue(dialoguesFin.GetTexte(langue));
             System.err.println("Dialogue créé");
-            dialogueFin.setTranslateX(512);
-            dialogueFin.setTranslateY(400);
+            dialogueFin.setTranslateX(1920 / 2);
+            dialogueFin.setTranslateY(1080/ 2);
 
             try {
             InputStream is = Files.newInputStream(Paths.get("./src/main/resources/meteorshooter/assets/Victory.png"));

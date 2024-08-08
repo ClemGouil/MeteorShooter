@@ -29,9 +29,9 @@ public class MeteorShooter extends Application {
         controleur.setGameMenu(gameMenu);
         controleur.setGameOverMenu(gameOverMenu);
 
-        Scene scenemenu = new Scene(gameMenu, 1024, 768);
+        Scene scenemenu = new Scene(gameMenu, 1920, 1080);
 
-        Scene sceneovermenu = new Scene(gameOverMenu, 1024, 768);
+        Scene sceneovermenu = new Scene(gameOverMenu, 1920, 1080);
 
 
         controleur.SetSceneMenu(scenemenu);

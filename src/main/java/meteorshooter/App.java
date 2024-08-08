@@ -36,7 +36,7 @@ public class App extends Application {
         gameLoop = new GameLoop(gameCore, controleur);
         gameLoop.start();
 
-        vueGameplay = new VueGameplay(gameCore, mainPane);
+        vueGameplay = new VueGameplay(gameCore, mainPane,".\\src\\main\\resources\\meteorshooter\\assets\\Artwork Soleil.png");
         
         mainPane.setPrefSize(800, 600);
 

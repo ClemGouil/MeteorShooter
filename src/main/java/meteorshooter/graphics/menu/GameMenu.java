@@ -59,8 +59,8 @@ public class GameMenu extends Parent {
             Image img = new Image(is);
             is.close();
             ImageView imgview = new ImageView(img);
-            imgview.setFitWidth(1024);
-            imgview.setFitHeight(768);
+            imgview.setFitWidth(1920);
+            imgview.setFitHeight(1080);
 
             InputStream is2 = Files.newInputStream(Paths.get("./src/main/resources/meteorshooter/assets/Title.png"));
             Image img2 = new Image(is2);
@@ -68,7 +68,7 @@ public class GameMenu extends Parent {
             ImageView title = new ImageView(img2);
             title.setFitWidth(600);
             title.setFitHeight(125);
-            title.setTranslateX(1024/2 - 600/2);
+            title.setTranslateX(1920/2 - 600/2);
             title.setTranslateY(70);
 
             // Ajouter les images au Parent (GameMenu)
@@ -158,7 +158,7 @@ public class GameMenu extends Parent {
             texte dialoguesDebut = new texte("Bonjour commandant, bienvenue à bord de l’Endurance. Je suis AmelIA, l’intelligence artificielle du vaisseau. Je vous seconderai au cours de votre exploration à travers l’univers. \n \nAvant de partir je vous propose de vous familiariser avec les commandes du vaisseau. \nL’espace est immense et plein de dangers, prenez le temps de vous entraîner avant de partir !", "Good afternoon commander, welcome aboard the Endurance. I am AmelIA the ship’s artificial intelligence. I will help you through your journey in the outer space. \n\nBefore we go, you should probably take some time to get familiar with the controls of the ship. \nSpace is huge and hazardous for a novice, take some time before taking off.");
             texte dialoguesFin = new texte("Nous voilà au delà de la ceinture d’astéroïdes, Jupiter est à notre droite et nous allons bientôt passer \n à proximité de Saturne. Nous prenons de la vitesse et nous serons dans quelques jours au niveau de \n Proxima du Centaure :l’étoile la plus proche de nous", "We have been through the asteroid belt; you can see Jupiter at our right\nand we will go near Saturn and the other gas giants. We will pick up speed and in a few days near\nProxima Centauri: the nearest star from our Solar System.");
             
-            controleur.startNewLevel(10000,dialoguesDebut, dialoguesFin, langue);
+            controleur.startNewLevel(30000,dialoguesDebut, dialoguesFin, langue, ".\\src\\main\\resources\\meteorshooter\\assets\\GalaxieNiveau1.jpg");
             niveauxDeverrouilles[1] = true;
             updateLevelButtons();
             });
@@ -172,7 +172,7 @@ public class GameMenu extends Parent {
                 "Bravo, vous avez réussi à passer leurs attaques, mais au vu de l’accueil que nous avons reçu ; je vous \npropose de poursuivre notre voyage. Le reste de la galaxie nous attend !",
                 "Well done, you have been through their fire but given how they welcomed us, \nI think it would not be a bad idea to resume our journey. After all, the galaxy awaits!"
             );
-            controleur.startNewLevel(6000, dialoguesDebut, dialoguesFin, langue);
+            controleur.startNewLevel(6000, dialoguesDebut, dialoguesFin, langue, ".\\src\\main\\resources\\meteorshooter\\assets\\GalaxieNiveau2.jpg");
             niveauxDeverrouilles[2] = true;
             updateLevelButtons();
         });
@@ -186,7 +186,7 @@ public class GameMenu extends Parent {
                 "Je suis triste de devoir quitter ce fabuleux endroit mais c’est sans aucun doute la meilleure chose à\n faire. Il vaut mieux laisser les créatures locales en paix.",
                 "It is so sad we must leave this place, but I think it is for the better. The local life forms will indeed be happier without us flying around."
             );
-            controleur.startNewLevel(7000, dialoguesDebut, dialoguesFin, langue);
+            controleur.startNewLevel(7000, dialoguesDebut, dialoguesFin, langue, ".\\src\\main\\resources\\meteorshooter\\assets\\GalaxieNiveau3.jpg");
             niveauxDeverrouilles[3] = true;
             updateLevelButtons();
         });
@@ -200,7 +200,7 @@ public class GameMenu extends Parent {
                 "Mon dieu, cela ne ressemblait à rien de ce que j’aurais pu imaginer !\nFuyons vite avant que d’autres\n de ces entités extra dimensionnelles nous rattrapent !",
                 "Jesus Christ! I could never have dreamed of such horrific creatures.\nLet’s get out of here as soon as possible before those extra dimensional entities catch us up!"
             );
-            controleur.startNewLevel(8000, dialoguesDebut, dialoguesFin, langue);
+            controleur.startNewLevel(8000, dialoguesDebut, dialoguesFin, langue, ".\\src\\main\\resources\\meteorshooter\\assets\\GalaxieNiveau4.jpg");
             niveauxDeverrouilles[4] = true;
             updateLevelButtons();
         });
@@ -214,7 +214,7 @@ public class GameMenu extends Parent {
                 "Vous avez vu la taille de ces vaisseaux, ces robots disposent sans aucun doute d’une technologie\n bien plus avancée que nous ! Je ne sais pas ce que nous réserve la suite du voyage mais je suis\n persuadé que nous n’en sommes encore qu’au commencement.",
                 "Have you seen the size of those ships! These robots have probably a much more advanced technology! \nI don’t know what awaits us for the rest of our journey, but I bet we haven’t seen anything yet."
             );
-            controleur.startNewLevel(9000, dialoguesDebut, dialoguesFin, langue);
+            controleur.startNewLevel(9000, dialoguesDebut, dialoguesFin, langue, ".\\src\\main\\resources\\meteorshooter\\assets\\GalaxieNiveau5.jpg");
         });
 
 
@@ -288,8 +288,8 @@ public class GameMenu extends Parent {
         menu.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
             double menuWidth = newBounds.getWidth();
             double menuHeight = newBounds.getHeight();
-            double containerWidth = 1024;
-            double containerHeight = 768;
+            double containerWidth = 1920;
+            double containerHeight = 1080;
             double offsetX = (containerWidth - menuWidth) / 2;
             double offsetY = (containerHeight - menuHeight) / 2;
             menu.setTranslateX(offsetX);
@@ -301,8 +301,8 @@ public class GameMenu extends Parent {
         menu.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
             double menuWidth = newBounds.getWidth();
             double menuHeight = newBounds.getHeight();
-            double containerWidth = 1024;
-            double containerHeight = 768;
+            double containerWidth = 1920;
+            double containerHeight = 1080;
             double offsetX = (containerWidth - menuWidth) / 2;
             double offsetY = (containerHeight - menuHeight) / 2;
             menu.setTranslateX(offsetX);

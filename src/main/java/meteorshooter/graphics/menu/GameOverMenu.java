@@ -31,8 +31,8 @@ public class GameOverMenu extends Parent {
             Image img = new Image(is);
             is.close();
             ImageView imgview = new ImageView(img);
-            imgview.setFitWidth(1024);
-            imgview.setFitHeight(768);
+            imgview.setFitWidth(1920);
+            imgview.setFitHeight(1080);
             getChildren().add(imgview);
         } catch (Exception e) {
             e.printStackTrace();
@@ -68,8 +68,8 @@ public class GameOverMenu extends Parent {
         menu.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
             double menuWidth = newBounds.getWidth();
             double menuHeight = newBounds.getHeight();
-            double containerWidth = 1024;
-            double containerHeight = 768;
+            double containerWidth = 1920;
+            double containerHeight = 1080;
             double offsetX = (containerWidth - menuWidth) / 2;
             double offsetY = (containerHeight - menuHeight) / 2;
             menu.setTranslateX(offsetX);

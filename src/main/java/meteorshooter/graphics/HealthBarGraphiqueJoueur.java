@@ -8,6 +8,7 @@ public class HealthBarGraphiqueJoueur extends HealthBarGraphique {
     private static final int padding = 10;
     private static final int X = GameCore.PLAYFIELD_WIDTH - (int)BASE_WIDTH - padding;
     private static final int Y = GameCore.PLAYFIELD_HEIGHT - (int)BASE_HEIGHT - padding;
+    
 
     public HealthBarGraphiqueJoueur(HealthBar healthBar) {
         super(healthBar);

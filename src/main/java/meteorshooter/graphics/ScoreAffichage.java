@@ -20,13 +20,13 @@ public class ScoreAffichage {
         text = new Text("Score : " + score.get_score());
         text.setFont(text.getFont().font(20));
         text.setFill(Color.BLACK);
-        text.setTranslateY(768 - 10);
+        text.setTranslateY(1080 - 10);
         text.setTranslateX(100 - (text.getBoundsInLocal().getWidth()/2));
 
         Rectangle rct = new Rectangle(200, 40);
         rct.setOpacity(1);
         rct.setFill(Color.BLUE);
-        rct.setTranslateY(768 - 40);
+        rct.setTranslateY(1080 - 40);
         rct.setTranslateX(0);
         
         //this.gamePane.setAlignment(Pos.CENTER);

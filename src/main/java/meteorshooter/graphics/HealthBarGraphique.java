@@ -15,7 +15,7 @@ public class HealthBarGraphique extends ObjetGraphique {
     protected HealthBar observedHealthBar;
 
     public static final double BASE_WIDTH = 120.0;
-    public static final double BASE_HEIGHT = 15.0;
+    public static final double BASE_HEIGHT = 10.0;
 
     public HealthBarGraphique(HealthBar healthBar) {
         

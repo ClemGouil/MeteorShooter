@@ -23,8 +23,8 @@ public class JeuInfini {
         gameCore = new GameCore();
         gameLoop = new GameLoop(gameCore, controleur);
         gameLoop.start();
-        VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane);
-        mainPane.setPrefSize(1024, 768);
+        VueGameplay vueGameplay = new VueGameplay(gameCore, mainPane, ".\\src\\main\\resources\\meteorshooter\\assets\\Artwork Soleil.png");
+        mainPane.setPrefSize(1920, 1080);
 
         Scene scenejeu = new Scene(mainPane);
         stage.addEventHandler(KeyEvent.KEY_PRESSED, evt -> {

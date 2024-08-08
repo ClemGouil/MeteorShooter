@@ -55,8 +55,8 @@ public class Controleur {
       this.gamemenu = gamemenu;
   }
     // Méthode pour initialiser et démarrer un nouveau niveau
-    public void startNewLevel(long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue) {
-        JeuNiveau jeuNiveau = new JeuNiveau(stage, this,tempsNiveau, dialoguesDebut, dialoguesFin,langue);
+    public void startNewLevel(long tempsNiveau, texte dialoguesDebut, texte dialoguesFin, String langue, String imagePath) {
+        JeuNiveau jeuNiveau = new JeuNiveau(stage, this,tempsNiveau, dialoguesDebut, dialoguesFin,langue,imagePath);
     }
 
     public void startLevelInfini() {

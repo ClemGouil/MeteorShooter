@@ -36,7 +36,7 @@ public class GameLoop extends AnimationTimer {
     private void showGameOverScreen() {
         // Implémentez cette méthode pour afficher l'écran de fin de jeu
         GameOverMenu gameovermenu= new GameOverMenu(controleur,gameCore.get_score().get_score2());
-        Scene sceneGameOver = new Scene(gameovermenu, 1024, 768);
+        Scene sceneGameOver = new Scene(gameovermenu, 1920, 1080);
         controleur.setGameOverMenu(gameovermenu);
         controleur.SetSceneGameOver(sceneGameOver);
         controleur.commuter(controleur.getSceneGameOver());

@@ -26,7 +26,7 @@ public class VaisseauEnnemi extends ObjetPhysiqueTrajet {
         this.fireCooldown = new Cooldown(FIRE_DELAY);
         this.observers = new ArrayList<VaisseauEnnemiGraphique>();
 
-        this.healthBar = new HealthBar(VIE_MAX, x, y + 10);
+        this.healthBar = new HealthBar(VIE_MAX, x, y + 20);
     }
 
     public void addObserver(VaisseauEnnemiGraphique v) {

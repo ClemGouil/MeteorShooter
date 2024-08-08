@@ -24,7 +24,7 @@ public class VueGameplay {
 
     private TrajectoireRectiligneAllerRetour trajectoireBackground; 
 
-    public VueGameplay (GameCore gameCore, Pane gamePane){
+    public VueGameplay (GameCore gameCore, Pane gamePane, String imagepath){
         // this.objetGraphiques = new ArrayList<ObjetGraphique>();
         
         this.gameCore = gameCore;
@@ -33,7 +33,7 @@ public class VueGameplay {
         this.gamePane = gamePane;
 
         try {
-        InputStream is = Files.newInputStream(Paths.get("./src/main/resources/meteorshooter/assets/Artwork Soleil.png"));
+        InputStream is = Files.newInputStream(Paths.get(imagepath));
         Image imgBackGround = new Image(is);
         this.backgroundTexture = new ImageView(imgBackGround);
         this.backgroundTexture.setPreserveRatio(true);

@@ -35,8 +35,8 @@ public class GameCore {
 
     private Vaisseau vaisseauJoueur;
 
-    public static final int PLAYFIELD_WIDTH = 1024;
-    public static final int PLAYFIELD_HEIGHT = 768;
+    public static final int PLAYFIELD_WIDTH = 1920;
+    public static final int PLAYFIELD_HEIGHT = 1080;
 
     private List<VueGameplay> vueGameplayObservers;
 
@@ -57,7 +57,7 @@ public class GameCore {
         this.vaisseauxEnnemis = new ArrayList<VaisseauEnnemi>();
 
         this.arme_base = new Arme_canon();
-        this.vaisseauJoueur = new Vaisseau(1024/2, 768-100, arme_base);
+        this.vaisseauJoueur = new Vaisseau(1920/2, 1080-100, arme_base);
 
         this.vueGameplayObservers = new ArrayList<VueGameplay>();
 
