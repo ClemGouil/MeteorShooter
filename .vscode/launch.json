@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HealthBarTest",
+            "request": "launch",
+            "mainClass": "meteorshooter/meteorshooter.HealthBarTest",
+            "projectName": "meteorshooter"
+        },
+        {
+            "type": "java",
             "name": "Launch MeteorShooter",
             "request": "launch",
             "mainClass": "meteorshooter/meteorshooter.MeteorShooter",

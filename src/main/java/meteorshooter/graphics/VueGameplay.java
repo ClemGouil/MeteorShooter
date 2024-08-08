@@ -1,11 +1,13 @@
 package meteorshooter.graphics;
 
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import meteorshooter.GameMenu1;
 import meteorshooter.game.GameCore;
-import meteorshooter.game.Score;
 import meteorshooter.game.trajectoires.TrajectoireRectiligneAllerRetour;
 
 
@@ -16,15 +18,11 @@ public class VueGameplay {
     private GameCore gameCore;
     private Pane gamePane;
 
-    private final static String pathBackground = GameMenu1.class.getResource("assets/Artwork Soleil.png").toString();
-    private final static Image background = new Image(pathBackground, 3508, 2480, true, true);
     private ImageView backgroundTexture;
 
     private double elapsedTime;
 
-    private TrajectoireRectiligneAllerRetour trajectoireBackground = new TrajectoireRectiligneAllerRetour(
-        GameCore.PLAYFIELD_WIDTH - background.getWidth(), GameCore.PLAYFIELD_HEIGHT - background.getHeight(),
-        0, 0, 60);
+    private TrajectoireRectiligneAllerRetour trajectoireBackground; 
 
     public VueGameplay (GameCore gameCore, Pane gamePane){
         // this.objetGraphiques = new ArrayList<ObjetGraphique>();
@@ -34,8 +32,21 @@ public class VueGameplay {
 
         this.gamePane = gamePane;
 
-        this.backgroundTexture = new ImageView(background);
+        try {
+        InputStream is = Files.newInputStream(Paths.get("./src/main/resources/meteorshooter/assets/Artwork Soleil.png"));
+        Image imgBackGround = new Image(is);
+        this.backgroundTexture = new ImageView(imgBackGround);
         this.backgroundTexture.setPreserveRatio(true);
+        trajectoireBackground = new TrajectoireRectiligneAllerRetour(
+        GameCore.PLAYFIELD_WIDTH - imgBackGround.getWidth(), GameCore.PLAYFIELD_HEIGHT - imgBackGround.getHeight(),
+        0, 0, 60);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        
 
         // backgroundTexture.setFitHeight(GameCore.PLAYFIELD_HEIGHT);
         this.gamePane.getChildren().add(backgroundTexture);

@@ -6,11 +6,12 @@ import java.util.Random;
 
 import javafx.scene.input.KeyCode;
 import meteorshooter.game.Arme_vaisseau.Arme;
-import meteorshooter.game.Arme_vaisseau.Arme_basique;
 import meteorshooter.game.Arme_vaisseau.Arme_canon;
-import meteorshooter.game.Arme_vaisseau.Arme_laser;
 import meteorshooter.game.trajectoires.TrajectoireRectiligne;
-import meteorshooter.graphics.*;
+import meteorshooter.graphics.HealthBarGraphique;
+import meteorshooter.graphics.ObjetGraphique;
+import meteorshooter.graphics.VaisseauEnnemiGraphique;
+import meteorshooter.graphics.VueGameplay;
 
 public class GameCore {
 
@@ -57,7 +58,7 @@ public class GameCore {
         this.vaisseauxEnnemis = new ArrayList<VaisseauEnnemi>();
 
         this.arme_base = new Arme_canon();
-        this.vaisseauJoueur = new Vaisseau(100, 100, arme_base);
+        this.vaisseauJoueur = new Vaisseau(1024/2, 768-100, arme_base);
 
         this.vueGameplayObservers = new ArrayList<VueGameplay>();
 
@@ -119,7 +120,7 @@ public class GameCore {
         // Je ne sais pas le faire pour l'instant il faut que je vois avec Maxime.
         if (vaisseauEnnemiCooldown.update(delta)) {
             double randomX = random.nextDouble() * PLAYFIELD_WIDTH;
-            double randomY = random.nextDouble() * PLAYFIELD_HEIGHT / 5.0;
+            double randomY = 100;
             addNewVaisseauEnnemie(new VaisseauEnnemi(randomX, randomY));
         }
 

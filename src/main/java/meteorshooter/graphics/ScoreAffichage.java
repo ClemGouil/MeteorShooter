@@ -1,12 +1,11 @@
 package meteorshooter.graphics;
 
-import javafx.scene.layout.StackPane;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import meteorshooter.game.Score;
-import javafx.scene.Group;
-import javafx.scene.Node;
 
 public class ScoreAffichage {
 
@@ -21,13 +20,14 @@ public class ScoreAffichage {
         text = new Text("Score : " + score.get_score());
         text.setFont(text.getFont().font(20));
         text.setFill(Color.BLACK);
-        text.setTranslateY(590);
-        text.setTranslateX(10);
+        text.setTranslateY(768 - 10);
+        text.setTranslateX(100 - (text.getBoundsInLocal().getWidth()/2));
 
-        Rectangle rct = new Rectangle(250, 40);
+        Rectangle rct = new Rectangle(200, 40);
         rct.setOpacity(1);
         rct.setFill(Color.BLUE);
-        rct.setTranslateY(570);
+        rct.setTranslateY(768 - 40);
+        rct.setTranslateX(0);
         
         //this.gamePane.setAlignment(Pos.CENTER);
         this.root = new Group();

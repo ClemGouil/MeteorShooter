@@ -3,6 +3,7 @@ package meteorshooter.game;
 import java.util.ArrayList;
 import java.util.List;
 
+import meteorshooter.game.trajectoires.Trajectoire;
 import meteorshooter.graphics.ObjetGraphique;
 import meteorshooter.graphics.VaisseauEnnemiGraphique;
 

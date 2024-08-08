@@ -57,11 +57,9 @@ public class JeuNiveau {
 
         controleur.setSceneJeu(scenejeu);
         controleur.commuter(scenejeu);
-        System.out.println("initialiser");
     }
 
     private void showIntroDialogues() {
-        System.err.println(langue);
         Dialogue DialogueDebut = new Dialogue(dialoguesDebut.GetTexte(langue));
         DialogueDebut.setTranslateX(512);
         DialogueDebut.setTranslateY(400);
@@ -83,6 +81,7 @@ public class JeuNiveau {
         TimerTask endLevelTask = new TimerTask() {
             @Override
             public void run() {
+                gameLoop.stop();
                 showEndDialogues();
             }
         };
@@ -90,7 +89,6 @@ public class JeuNiveau {
     }
 
     private void showEndDialogues() {
-        System.err.println("erreur");
         Platform.runLater(() -> { // Assurez-vous que les modifications se font sur le thread JavaFX
             Dialogue dialogueFin = new Dialogue(dialoguesFin.GetTexte(langue));
             System.err.println("Dialogue créé");
@@ -99,7 +97,6 @@ public class JeuNiveau {
             mainPane.getChildren().add(dialogueFin);
             
             dialogueFin.setOnMouseClicked(evt -> {
-                gameLoop.stop();
                 mainPane.getChildren().remove(dialogueFin);
                 endLevel();
             });
@@ -108,9 +105,7 @@ public class JeuNiveau {
 
     private void endLevel() {
         Platform.runLater(() -> {
-            System.out.println("Niveau terminé !");
             controleur.commuter(controleur.getSceneMenu());
-            System.out.println("Changement fait");
         });
     }
 }

@@ -159,7 +159,7 @@ public class GameMenu extends Parent {
                 texte dialoguesDebut = new texte("Bonjour commandant, bienvenue à bord de l’Endurance. Je suis AmelIA, l’intelligence artificielle du vaisseau. Je vous seconderai au cours de votre exploration à travers l’univers. \n \nAvant de partir je vous propose de vous familiariser avec les commandes du vaisseau. \nL’espace est immense et plein de dangers, prenez le temps de vous entraîner avant de partir !", "Good afternoon commander, welcome aboard the Endurance. I am AmelIA the ship’s artificial intelligence. I will help you through your journey in the outer space. \n\nBefore we go, you should probably take some time to get familiar with the controls of the ship. \nSpace is huge and hazardous for a novice, take some time before taking off.");
                 texte dialoguesFin = new texte("Nous voilà au delà de la ceinture d’astéroïdes, Jupiter est à notre droite et nous allons bientôt passer \n à proximité de Saturne. Nous prenons de la vitesse et nous serons dans quelques jours au niveau de \n Proxima du Centaure :l’étoile la plus proche de nous", "We have been through the asteroid belt; you can see Jupiter at our right\nand we will go near Saturn and the other gas giants. We will pick up speed and in a few days near\nProxima Centauri: the nearest star from our Solar System.");
                 
-                controleur.startNewLevel(5000,dialoguesDebut, dialoguesFin, langue);
+                controleur.startNewLevel(10000,dialoguesDebut, dialoguesFin, langue);
                 niveauxDeverrouilles[1] = true;
                 });
         } 
